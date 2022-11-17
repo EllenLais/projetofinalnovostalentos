@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <head th:include="layout :: head"></head>
+
+    <body>
+        <nav th:replace="layout :: menu"></nav>
+        <main class="container">
+            <form th:action="@{/produto/(form)}" 
+                method="POST" th:object="${produto}"> 
+
+                <input type="hidden" th:field="*{id}"
+                        class="form-control">
+
+                <div class="form-group">
+                    <label for="txtnome">Nome:</label>
+                    <input type="text" th:field="*{nome}"
+                        class="form-control" id="txtnome">
+                </div>
+                <div class="form-group">
+                    <label for="txtquantidadeMin">Quantidade Mínima:</label>
+                    <input type="text" th:field="*{quantidadeMin}"
+                        class="form-control" id="txtquantidadeMin">
+                </div>
+                <div class="form-group">
+                    <label for="txtquantidadeMax">Quantidade Máxima:</label>
+                    <input type="text" th:field="*{quantidadeMax}"
+                        class="form-control" id="txtquantidadeMax">
+                </div>
+                <div class="form-group">
+                    <label for="txtdatadeCriacao">Data de Criação:</label>
+                    <input type="date" th:field="*{datadeCriacao}"
+                        class="form-control" id="txtdatadeCriacao">
+                </div>
+
+                <div class="form-group">
+                    <label>Categoria:</label>
+                    <select class="form-select" th:field="*{categoria}">
+                        <option th:each="umaCategoria : ${listaCategorias}"
+                        th:text="${umaCategoria.nome}"
+                        th:value="${umaCategoria.id}"></option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </main>
+        <footer th:include="layout :: footer"></footer>
+    </body>
+</html>

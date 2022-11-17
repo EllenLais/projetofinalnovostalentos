@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <head th:include="layout :: head"></head>
+
+    <body>
+        <nav th:replace="layout :: menu"></nav>
+        <main class="container">
+            <a href="/categoria/novo" class="btn btn-primary">Novo</a>
+            <table class="table" id="tabcategorias">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="umaCategoria : ${listaCategorias}">
+                        <td th:text="${umaCategoria.id}"></td>
+                        <td th:text="${umaCategoria.nome}"></td>
+                        <td>
+                            <a th:href="@{'/categoria/alterar/' + ${umaCategoria.id}}" class="btn btn-warning">Alterar</a>
+                            <button class="btn btn-danger js-delete" th:data-id="${umaCategoria.id}">Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </main>
+        <div class="modal" tabindex="-1" id="modalcategoria">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Excluir categoria</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Confirma a exclusão da Categoria?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="btnnao" data-bs-dismiss="modal">Não</button>
+                    <button type="button" class="btn btn-primary" id="btnsim">Sim</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <footer th:include="layout :: footer"></footer>
+        <script th:src="@{/scriptcat.js}"></script>
+
+    </body>
+</html>
