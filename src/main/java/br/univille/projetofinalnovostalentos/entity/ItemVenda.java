@@ -8,12 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class ItemCompra {
+public class ItemVenda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private int quantidade;
-    private float valorCompra;
+    private float valorVenda;
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     private Produto produto;
 
@@ -29,17 +29,19 @@ public class ItemCompra {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
-    
+    public float getValorVenda() {
+        return valorVenda;
+    }
+    public void setValorVenda(float valorVenda) {
+        this.valorVenda = valorVenda;
+    }
     public Produto getProduto() {
         return produto;
     }
     public void setProduto(Produto produto) {
         this.produto = produto;
     }
-    public float getValorCompra() {
-        return valorCompra;
-    }
-    public void setValorCompra(float valorCompra) {
-        this.valorCompra = valorCompra;
-    }
+    public float getValorFinal(){
+        return this.getValorVenda() * this.getQuantidade();
+    }    
 }

@@ -5,9 +5,8 @@ import br.univille.projetofinalnovostalentos.entity.Cliente;
 
 public interface ClienteService {
     List<Cliente> getAll();
-    void save(Cliente cliente);
+    Cliente save(Cliente cliente);
     Cliente findById(long id);
     void delete(long id);
-    
     
 }

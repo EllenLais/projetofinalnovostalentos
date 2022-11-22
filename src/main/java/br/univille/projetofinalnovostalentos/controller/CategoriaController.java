@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.univille.projetofinalnovostalentos.entity.Categoria;
-import br.univille.projetofinalnovostalentos.entity.Produto;
 import br.univille.projetofinalnovostalentos.service.CategoriaService;
-import br.univille.projetofinalnovostalentos.service.ProdutoService;
 
 
 @Controller
