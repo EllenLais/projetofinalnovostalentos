@@ -22,13 +22,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="umCliente : ${listaClientes}">
+                    <tr th:each="umCliente : ${listaCliente}">
                         <td th:text="${umCliente.id}"></td>
                         <td th:text="${umCliente.nome}"></td>
                         <td th:text="${umCliente.telefone}"></td>
                         <td th:text="${umCliente.endereco}"></td>
                         <td th:text="${umCliente.email}"></td>
-                        <td th:text="${umCliente.cpf}"></td>
+                        <td th:text="${umCliente.CPF}"></td>
                         <td>
                             <a th:href="@{'/cliente/alterar/' + ${umCliente.id}}" class="btn btn-warning">Alterar</a>
                             <button class="btn btn-danger js-delete" th:data-id="${umCliente.id}">Excluir</button>
