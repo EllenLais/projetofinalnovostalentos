@@ -29,17 +29,19 @@ public class ItemCompra {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
-    
-    public Produto getProduto() {
-        return produto;
-    }
-    public void setProduto(Produto produto) {
-        this.produto = produto;
-    }
     public float getValorCompra() {
         return valorCompra;
     }
     public void setValorCompra(float valorCompra) {
         this.valorCompra = valorCompra;
+    }
+    public Produto getProduto() {
+        return produto;
+    }
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }    
+    public float getValorFinal(){
+        return this.getValorCompra() * this.getQuantidade();
     }
 }

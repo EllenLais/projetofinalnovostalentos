@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <head th:include="layout :: head"></head>
+
+    <body>
+        <nav th:replace="layout :: menu"></nav>
+        <main class="container">
+            <a href="/compras/novo" class="btn btn-primary">Novo</a>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Data da Compra</th>
+                        <th>Fornecedor</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="umaCompra : ${listaCompras}">
+                        <td th:text="${umaCompra.dataEntrada}"></td>
+                        <td th:text="${umaCompra.fornecedor?.nomeEmpresa}"></td>
+                        <td th:text="${#aggregates.sum(umaCompra.colItens.![getValorFinal])}"></td>"
+                    </tr>
+                </tbody>
+            </table>   
+        </main>
+        <footer th:include="layout :: footer"></footer>
+    </body>
+</html>

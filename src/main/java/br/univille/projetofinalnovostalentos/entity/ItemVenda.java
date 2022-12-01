@@ -16,7 +16,8 @@ public class ItemVenda {
     private float valorVenda;
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     private Produto produto;
-
+    
+    
     public long getId() {
         return id;
     }
@@ -43,5 +44,5 @@ public class ItemVenda {
     }
     public float getValorFinal(){
         return this.getValorVenda() * this.getQuantidade();
-    }    
+    }
 }
