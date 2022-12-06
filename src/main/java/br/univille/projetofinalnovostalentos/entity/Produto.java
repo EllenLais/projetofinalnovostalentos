@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -30,6 +31,8 @@ public class Produto {
     private Date datadeCriacao;
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     private Categoria categoria;
+    @ManyToOne(cascade = {CascadeType.ALL})
+    private TabelaPreco valVenda = new TabelaPreco();
 
     public Long getId() {
         return id;
@@ -66,6 +69,12 @@ public class Produto {
     }
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+    public TabelaPreco getValVenda() {
+        return valVenda;
+    }
+    public void setValVenda(TabelaPreco valVenda) {
+        this.valVenda = valVenda;
     }
    
 }

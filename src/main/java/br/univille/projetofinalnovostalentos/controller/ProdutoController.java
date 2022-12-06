@@ -51,7 +51,7 @@ public class ProdutoController {
             HashMap<String,Object> dados = new HashMap<>();
             dados.put("produto",produto);
             dados.put("listaCategorias",listaCategorias);
-            return new ModelAndView("cliente/form",dados);
+            return new ModelAndView("produto/form",dados);
         }
         service.save(produto);
 

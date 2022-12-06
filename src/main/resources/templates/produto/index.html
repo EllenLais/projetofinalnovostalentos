@@ -17,6 +17,7 @@
                         <th>Quantidade Maxima</th>
                         <th>Data de Criação</th>
                         <th>Categoria</th>
+                        <th>Valor de Venda</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -30,6 +31,7 @@
                             th:text="${#dates.format(umProduto.datadeCriacao, 'dd/MM/yyyy')}"></td>
                         <td th:unless="${umProduto.datadeCriacao}">Não informada</td>
                         <td th:text="${umProduto.categoria?.nome}"></td>
+                        <td th:text="${umProduto.valVenda?.valCompra}"></td>
                         <td>
                             <a th:href="@{'/produto/alterar/' + ${umProduto.id}}" class="btn btn-warning">Alterar</a>
                             <button class="btn btn-danger js-delete" th:data-id="${umProduto.id}">Excluir</button>
